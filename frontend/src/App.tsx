@@ -17,7 +17,7 @@ type Note = {
 type Category = "Docker" | "Linux" | "Kubernetes" | "CI/CD" | "General";
 
 const categories: Category[] = ["Docker", "Linux", "Kubernetes", "CI/CD", "General"];
-const apiUrl = import.meta.env.VITE_API_URL ?? "http://localhost:4000/api";
+const apiUrl = "/api";
 
 const emptyNote = {
   title: "",

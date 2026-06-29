@@ -33,9 +33,12 @@ npm run dev
 Frontend: http://localhost:5173
 Backend: http://localhost:4000
 
+The frontend calls the API through the same-origin `/api` path. In local Vite development,
+`/api` is proxied to the backend on port `4000`; set `DEV_API_PROXY_TARGET` to override that
+target. In Docker, nginx proxies `/api` to the backend container.
+
 ## Docker
 
 ```bash
 docker compose up --build
 ```
-

@@ -8,12 +8,14 @@ import { notesRouter } from "./routes/notes.js";
 
 const app = express();
 
-app.use(
-  cors({
-    origin: env.CORS_ORIGIN,
-    credentials: true
-  })
-);
+if (env.CORS_ORIGIN) {
+  app.use(
+    cors({
+      origin: env.CORS_ORIGIN,
+      credentials: true
+    })
+  );
+}
 app.use(express.json());
 
 app.get("/health", (_req, res) => {
