@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-in-container:
+    runs-on: ubuntu-latest
+
+    container:
+      image: node:20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm run install:all
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build project
+        run: npm run build
